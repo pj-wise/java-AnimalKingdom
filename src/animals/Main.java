@@ -8,24 +8,35 @@ public class Main {
 
         //new animals in collection
         //mammals
-        newAnimals.add(new Mammals("Panda", 1869));
-        newAnimals.add(new Mammals("Zebra", 1778));
-        newAnimals.add(new Mammals("Koala", 1816));
-        newAnimals.add(new Mammals("Sloth", 1804));
-        newAnimals.add(new Mammals("Armadillo", 1758));
-        newAnimals.add(new Mammals("Raccoon", 1758));
-        newAnimals.add(new Mammals("Bigfoot", 2021));
+        animalCollection.add(new Mammals("Panda", 1869));
+        animalCollection.add(new Mammals("Zebra", 1778));
+        animalCollection.add(new Mammals("Koala", 1816));
+        animalCollection.add(new Mammals("Sloth", 1804));
+        animalCollection.add(new Mammals("Armadillo", 1758));
+        animalCollection.add(new Mammals("Raccoon", 1758));
+        animalCollection.add(new Mammals("Bigfoot", 2021));
 
         //birds
-        newAnimals.add(new Birds("Pigeon", 1837));
-        newAnimals.add(new Birds("Peacock", 1821));
-        newAnimals.add(new Birds("Toucan", 1758));
-        newAnimals.add(new Birds("Parrot", 1824));
-        newAnimals.add(new Birds("Swan", 1758));
+        animalCollection.add(new Birds("Pigeon", 1837));
+        animalCollection.add(new Birds("Peacock", 1821));
+        animalCollection.add(new Birds("Toucan", 1758));
+        animalCollection.add(new Birds("Parrot", 1824));
+        animalCollection.add(new Birds("Swan", 1758));
 
         //fish
-        newAnimals.add(new Fish("Salmon", 1758));
-        newAnimals.add(new Fish("Catfish", 1817));
-        newAnimals.add(new Fish("Perch", 1758));
+        animalCollection.add(new Fish("Salmon", 1758));
+        animalCollection.add(new Fish("Catfish", 1817));
+        animalCollection.add(new Fish("Perch", 1758));
+
+        //List all the animals in descending order by year named
+        System.out.println("\n *** DISCOVERY YEAR ***");
+        Collections.sort(animalCollection, (a1, a2) -> a2.yearDiscovered - a1.yearDiscovered);
+        System.out.println(animalCollection);
+
+        //List all the animals alphabetically
+        System.out.println("\n *** NAME ***");
+        Collections.sort(animalCollection, (a1, a2) -> a1.name.compareToIgnoreCase(a2.name));
+        System.out.println(animalCollection);
+
     }
 }
