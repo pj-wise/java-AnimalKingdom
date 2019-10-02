@@ -38,5 +38,52 @@ public class Main {
         Collections.sort(animalCollection, (a1, a2) -> a1.name.compareToIgnoreCase(a2.name));
         System.out.println(animalCollection);
 
+        //List all the animals order by how they move
+        System.out.println("\n*** ANIMALS BY MOVEMENT ***");
+        Collections.sort(animalCollection, (a1, a2) -> a1.move().compareToIgnoreCase(a2.move()));
+        animalCollection.forEach(animal -> System.out.println(animal.getName() + ": " + animal.move()));
+
+         // only animals that breathe with lungs
+        System.out.println("\n*** ANIMALS THAT BREATHE WITH LUNGS ***");
+        animalCollection.forEach(animal -> {
+            if (animal.breathe().equals("Lungs")) {
+                System.out.println(animal.getName() + ": " + animal.breathe());
+            }
+        });
+
+        // only animals that breathe with lungs and discovered in 1758
+        System.out.println("\n*** ANIMALS THAT BREATE WITH LUNGS AND DISCOVERED 1758 ***");
+        animalCollection.forEach(animal -> {
+            if (animal.breathe().equals("Lungs") && animal.yearDiscovered == 1758) {
+                System.out.println(animal.getName() + ": " + animal.breathe() + " " + animal.yearDiscovered);
+            }
+        });
+
+        // only animals that lay eggs and breathe with lungs
+        System.out.println("\n*** ANIMALS THAT LAY EGGS AND BREATHE WITH LUNGS ***");
+        animalCollection.forEach(animal -> {
+            if (animal.reproduce().equals("Eggs") && animal.breathe().equals("Lungs")) {
+                System.out.println(animal.getName() + ": " + "Breathes with " + animal.breathe() + " "
+                        + "and reproduces by" + " " + animal.reproduce());
+            }
+        });
+
+        // only animals in 1758 alphabetically
+        System.out.println("\n*** ALPHABETICAL ANIMALS NAMED IN 1758***");
+        Collections.sort(animalCollection, (a1, a2) -> a1.name.compareToIgnoreCase(a2.name));
+        animalCollection.forEach(animal -> {
+            if (animal.yearDiscovered == 1758) {
+                System.out.println(animal.getName());
+                ;
+            }
+        });
+
+        // only mammals alphabetically
+        System.out.println("\n*** ALPHABETICAL MAMMALS ***");
+        animalCollection.forEach(animal -> {
+            if (animal instanceof Mammals) {
+                System.out.println(animal);
+            }
+        });
     }
 }
